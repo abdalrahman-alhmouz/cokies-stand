@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(212, 193, 214);
+}
+h1 {
+    font-family: 'Coiny';font-size: 22px;
+    color: blue;
+    background-color: cornsilk;
+    border: 5px solid rgb(24, 24, 26);
+}
+p {
+    font-family: 'Damion';font-size: 22px;
+    color: rgb(204, 63, 192);
+    background-color: darkkhaki;
+    border: 5px solid rgb(24, 24, 26);
+
+}
+h3 {
+    font-family: 'Delius Unicase';font-size: 22px;
+    color: rgb(185, 135, 135);
+    background-color: darkslateblue;
+    border: 5px solid rgb(24, 24, 26);
+
+}
