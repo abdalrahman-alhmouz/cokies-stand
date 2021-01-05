@@ -7,7 +7,7 @@ function Resturan(location,min,max,avgCookieSale,hourlySales,dailySales){
     this.max=max ;
     this.avgCookieSale=avgCookieSale ;
     this.hourlySales=[] ;
-    this.dailySales = 0 ;
+    this.dailySales = [];
    this.randomCust =function(){
 
      var range=this.max-this.min;
@@ -58,6 +58,9 @@ console.log(seattleCookies.hourlySales)
 var table =document.createElement('table');
 container.appendChild(table);
 
+
+
+
 var tableRawOne=document.createElement('tr');
 table.appendChild(tableRawOne);
 var header =document.createElement('th');
@@ -76,9 +79,12 @@ function time(){
    }   
   time()
 
+  
+  
+
   var tableRawOne=document.createElement('tr');
   table.appendChild(tableRawOne);
-  var header =document.createElement('th');
+  var header =document.createElement('tr');
   header.textContent=seattleCookies.location
   tableRawOne.appendChild(header)
 
@@ -161,6 +167,11 @@ data.textContent=limaCookies.hourlySales[i]
 tableRawOne.appendChild(data);
 }}
 lma()
+
+
+
+
+
 var tableRawOne=document.createElement('tr');
 table.appendChild(tableRawOne);
 var header =document.createElement('th');
@@ -178,3 +189,20 @@ tableRawOne.appendChild(data);
 }
 tot()
 
+var tabelColom=document.createElement('th');
+table.appendChild(tabelColom);
+var header =document.createElement('th');
+header.textContent='total dayaly'
+tabelColom.appendChild(header)
+
+function totale() {
+  for(var i=0;i<limaCookies.hourlySales.length;i++){
+    var total = seattleCookies.dailySales[i]+tokyoCookies.dailySales[i]+dubaiCookies.dailySales[i]+parisCookies.dailySales[i]+limaCookies.dailySales[i]
+var second = document.createElement('th')
+tableRawOne.appendChild(second)
+var data =document.createElement('tr')
+data.textContent= total
+tabelColom.appendChild(data);
+}
+}
+totale()
