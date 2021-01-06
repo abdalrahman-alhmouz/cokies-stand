@@ -1,5 +1,5 @@
 "use strict"
-
+var resturan =[]
  var hours=["6am" ,'7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 function Resturan(location,min,max,avgCookieSale,hourlySales,dailySales){
     this.location =location ;
@@ -40,6 +40,7 @@ Resturan.prototype.hourlyDailySales=function(){
     }
 
 }
+
 
  var seattleCookies = new Resturan('seatle',23,65,6.3,[],0);
 
@@ -189,20 +190,46 @@ tableRawOne.appendChild(data);
 }
 tot()
 
-var tabelColom=document.createElement('th');
-table.appendChild(tabelColom);
-var header =document.createElement('th');
-header.textContent='total dayaly'
-tabelColom.appendChild(header)
 
-function totale() {
-  for(var i=0;i<limaCookies.hourlySales.length;i++){
-    var total = seattleCookies.dailySales[i]+tokyoCookies.dailySales[i]+dubaiCookies.dailySales[i]+parisCookies.dailySales[i]+limaCookies.dailySales[i]
-var second = document.createElement('th')
-tableRawOne.appendChild(second)
-var data =document.createElement('tr')
-data.textContent= total
-tabelColom.appendChild(data);
+
+
+var tableForm =document.getElementById("tableForm")
+tableForm.addEventListener('submit', alertUser) 
+function alertUser(event) {
+  
+  event.preventDefault()
+console.log(event.target.name.value)
+  var name = event.target.name.value;
+  var location = parseInt(event.target.loc.value);
+  var maxh =  parseInt(event.target.maxx.value);
+  var min =parseInt( event.target.minn.value);
+  var avg =  parseInt(event.target.avg.value);
+  var hoursl =parseInt(event.target.hoursa.value);
+  var hourday =parseInt(event.target.hourdaa.value);
+
+ var newRes = new Resturan(location,maxh,min,avg,hoursl,hourday)
+
+ var tableRawOne=document.createElement('tr');
+ table.appendChild(tableRawOne);
+ var header =document.createElement('tr');
+ header.textContent='name'
+ tableRawOne.appendChild(header)
+
+ function seat() {
+   for(var i=0;i<tokyoCookies.hourlySales.length;i++){
+   var lll = [ name, location ,maxh,min,avg,hoursl,hourday]
+ var second = document.createElement('th')
+ table.appendChild(second)
+ var data =document.createElement('td')
+ data.textContent= lll[i];
+
+ tableRawOne.appendChild(data);
+ }}
+ seat()
+
+ 
+ 
 }
-}
-totale()
+
+
+
