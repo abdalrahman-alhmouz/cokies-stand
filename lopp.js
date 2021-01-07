@@ -36,7 +36,7 @@ Resturan.prototype.hourlyDailySales=function(){
     for ( var i=0;i<hours.length;i++){
      var numOfCookies= Math.ceil(seattleCookies.randomCust() *seattleCookies.avgCookieSale);
     seattleCookies.hourlySales.push(numOfCookies);
-        seattleCookies.dailySales += numOfCookies;
+        Resturan.dailySales += numOfCookies;
     }
 
 }
@@ -173,22 +173,6 @@ lma()
 
 
 
-var tableRawOne=document.createElement('tr');
-table.appendChild(tableRawOne);
-var header =document.createElement('th');
-header.textContent='total'
-tableRawOne.appendChild(header)
-function tot() {
-  for(var i=0;i<limaCookies.hourlySales.length;i++){
-    var total = seattleCookies.hourlySales[i]+tokyoCookies.hourlySales[i]+dubaiCookies.hourlySales[i]+parisCookies.hourlySales[i]+limaCookies.hourlySales[i]
-var second = document.createElement('th')
-table.appendChild(second)
-var data =document.createElement('td')
-data.textContent= total
-tableRawOne.appendChild(data);
-}
-}
-tot()
 
 
 
@@ -200,36 +184,107 @@ function alertUser(event) {
   event.preventDefault()
 console.log(event.target.name.value)
   var name = event.target.name.value;
-  var location = parseInt(event.target.loc.value);
   var maxh =  parseInt(event.target.maxx.value);
   var min =parseInt( event.target.minn.value);
   var avg =  parseInt(event.target.avg.value);
-  var hoursl =parseInt(event.target.hoursa.value);
-  var hourday =parseInt(event.target.hourdaa.value);
 
- var newRes = new Resturan(location,maxh,min,avg,hoursl,hourday)
+ var newRes = new Resturan(name,maxh,min,avg)
 
  var tableRawOne=document.createElement('tr');
  table.appendChild(tableRawOne);
  var header =document.createElement('tr');
- header.textContent='name'
+ header.textContent=name
  tableRawOne.appendChild(header)
+
+
 
  function seat() {
    for(var i=0;i<tokyoCookies.hourlySales.length;i++){
-   var lll = [ name, location ,maxh,min,avg,hoursl,hourday]
+   var lll = [maxh,min,avg]
  var second = document.createElement('th')
  table.appendChild(second)
  var data =document.createElement('td')
- data.textContent= lll[i];
+ data.textContent= newRes.hourlySales[i]
 
  tableRawOne.appendChild(data);
+
+
+
+
+
  }}
  seat()
 
+ var tableRawOne=document.createElement('tr');
+ table.appendChild(tableRawOne);
+ var header =document.createElement('tr');
+ header.textContent="total hourly sales"
+ tableRawOne.appendChild(header)
  
+
+ function seatl() {
+  for(var i=0;i<tokyoCookies.hourlySales.length;i++){
+  var lll = [maxh,min,avg]
+  var total = seattleCookies.hourlySales[i]+tokyoCookies.hourlySales[i]+dubaiCookies.hourlySales[i]+parisCookies.hourlySales[i]+limaCookies.hourlySales[i] + newRes.hourlySales[i]
+var second = document.createElement('th')
+table.appendChild(second)
+var data =document.createElement('td')
+data.textContent= total
+
+tableRawOne.appendChild(data);
+
+
+
+
+
+}}
+seatl()
  
+var tableRawthre=document.createElement('th');
+table.appendChild(tableRawthre);
+var header =document.createElement('th');
+header.textContent="total dayaly sales"
+tableRawOne.appendChild(header)
+
+function seatkl() {
+  for(var i=0;i<tokyoCookies.hourlySales.length;i++){
+  var totall = seattleCookies.dailySales[i]+tokyoCookies.dailySales[i]+dubaiCookies.dailySales[i]+parisCookies.dailySales[i]+limaCookies.dailySales[i] + newRes.dailySales[i]
+var second = document.createElement('tr')
+table.appendChild(second)
+var data =document.createElement('th')
+data.textContent= totall
+
+tableRawOne.appendChild(data);
+
+
+
+
+
+}}
+seatkl()
+
+
+
 }
+
+
+var tableRawOne=document.createElement('tr');
+table.appendChild(tableRawOne);
+var header =document.createElement('th');
+header.textContent='total'
+tableRawOne.appendChild(header)
+function tot() {
+  for(var i=0;i<limaCookies.hourlySales.length;i++){
+    var total = seattleCookies.hourlySales[i]+tokyoCookies.hourlySales[i]+dubaiCookies.hourlySales[i]+parisCookies.hourlySales[i]+limaCookies.hourlySales[i] 
+var second = document.createElement('th')
+table.appendChild(second)
+var data =document.createElement('td')
+data.textContent= total
+tableRawOne.appendChild(data);
+}
+}
+tot()
+
 
 
 

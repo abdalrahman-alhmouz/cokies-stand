@@ -19,5 +19,8 @@ button{
     color: rgb(80, 90, 58);
 }
 a{
-    font: size 30px;
+    font: size large;
+}
+body{
+    background-color: rgb(218, 170, 206);
 }
