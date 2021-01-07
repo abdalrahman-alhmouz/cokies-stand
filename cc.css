@@ -24,3 +24,12 @@ a{
 body{
     background-color: rgb(218, 170, 206);
 }
+h1 {
+    font-family: 'Coiny';font-size: 22px;
+    color: blue;
+    background-color: cornsilk;
+    border: 5px solid rgb(24, 24, 26);
+}
+p{
+    font-family: 'Brush Script MT', cursive;
+}
